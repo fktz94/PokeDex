@@ -22,10 +22,41 @@
 
     <div
       id="cuerpo"
-      class="h-screen bg-gradient-to-t from-cyan-600 to-cyan-300"
+      class="h-max py-10 bg-gradient-to-tl from-cyan-600 to-cyan-300"
     >
-      <div id="grilla-de-pokemones">
-        <div class=""></div>
+      <h2 class="px-20 py-14 text-4xl tracking-widest">Elije tu Pokemón:</h2>
+      <div
+        class="grid grid-cols-4 w-4/5 m-auto py-10 gap-14 text-xl font-mono"
+        id="grilla-de-pokemones"
+      >
+        <!-- Grilla de Pokemones -->
+      </div>
+
+      <div class="text-center h-fit mt-10" id="flechas">
+        <div
+          class="w-40 py-3 mx-20 inline-block rounded-full cursor-pointer bg-red-50"
+          id="ir-principio"
+        >
+          Pag. 1
+        </div>
+        <div
+          class="w-40 py-3 mx-20 inline-block rounded-full cursor-pointer bg-red-50"
+          id="ir-atras"
+        >
+          ATRAS
+        </div>
+        <div
+          class="w-40 py-3 mx-20 inline-block rounded-full cursor-pointer bg-red-50"
+          id="ir-adelante"
+        >
+          ADELANTE
+        </div>
+        <div
+          class="w-40 py-3 mx-20 inline-block rounded-full cursor-pointer bg-red-50"
+          id="ir-final"
+        >
+          Pag. Final
+        </div>
       </div>
     </div>
 

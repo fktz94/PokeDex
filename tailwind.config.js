@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["index.html"],
+  content: ["index.html", "./src/pokedex.js"],
   theme: {
     extend: {},
   },
   plugins: [],
-}
+};
