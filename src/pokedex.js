@@ -4,6 +4,7 @@ const botonIrAtras = $("#ir-atras");
 const botonIrAdelante = $("#ir-adelante");
 const botonIrPrincipio = $("#ir-principio");
 const botonIrFinal = $("#ir-final");
+const botonVolverAtras = $("#volver-atras");
 
 function listarPokemones(url) {
   fetch(url)
@@ -20,38 +21,17 @@ function listarPokemones(url) {
         );
       });
 
-      console.log(respuesta.results);
       botonIrAtras[0].href = respuesta.previous;
       botonIrAdelante[0].href = respuesta.next;
+      botonVolverAtras[0].href = url;
 
       habilitarYDeshabilitarBotones();
 
-      verPokemon();
+      getId();
     });
 }
-
-//
-
-const verPokemon = () => {
-  $("#grilla-de-pokemones")
-    .children()
-    .each((i, pokemon) => {
-      pokemon.addEventListener("click", getId);
-    });
-};
-
-function getId(e) {
-  const id = e.target.attributes.id.value;
-  fetch(`${LINK}/${id}`)
-    .then((respuesta) => respuesta.json())
-    .then((respuesta) => console.log(respuesta));
-}
-
-//
-
 listarPokemones(LINK);
 
-verPokemon();
 const irPrincipio = () =>
   botonIrAtras[0].href === null
     ? botonIrAtras.on("click", () => "")
@@ -96,8 +76,43 @@ function habilitarYDeshabilitarBotones() {
 }
 
 // Derivar a cada pokemon ...
-// const showEventTarget = (e) => {
-//   console.log(e);
-//   console.log(e.target);
-//   console.log(e.target.attributes.href.value);
-// };
+
+const getId = () => {
+  $("#grilla-de-pokemones")
+    .children()
+    .each((i, pokemon) => {
+      pokemon.addEventListener("click", llamarPokemon);
+    });
+};
+
+function llamarPokemon(e) {
+  const id = e.target.attributes.id.value;
+
+  fetch(`${LINK}/${id}`)
+    .then((respuesta) => respuesta.json())
+    .then((respuesta) => {
+      console.log(respuesta);
+      $("#h2").hide();
+      $("#grilla-de-pokemones").hide();
+      $("#flechas").hide();
+      $("#nombre-pokemon")
+        .removeClass("hidden")
+        .text(respuesta.name.toUpperCase());
+      $("#imagen-pokemon")
+        .removeClass("hidden")
+        .attr("src", `${respuesta.sprites.other.home.front_default}`);
+      $("#volver-atras").removeClass("hidden");
+    });
+}
+
+const volverAtras = () => {
+  $("#h2").show();
+  $("#grilla-de-pokemones").show();
+  $("#flechas").show();
+  $("#nombre-pokemon").addClass("hidden");
+  $("#imagen-pokemon").addClass("hidden");
+  botonVolverAtras.addClass("hidden");
+  listarPokemones(botonVolverAtras[0].href);
+};
+
+botonVolverAtras.on("click", volverAtras);

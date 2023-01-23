@@ -24,11 +24,27 @@
       id="cuerpo"
       class="h-max py-10 bg-gradient-to-tl from-cyan-600 to-cyan-300"
     >
-      <h2 class="px-20 py-14 text-4xl tracking-widest">Elije tu Pokemón:</h2>
+      <h2 class="px-20 py-14 text-4xl tracking-widest" id="h2">
+        Elije tu Pokemón:
+      </h2>
       <div
         class="grid grid-cols-4 w-4/5 m-auto py-10 gap-14 text-xl font-mono"
         id="grilla-de-pokemones"
       ></div>
+
+      <h3
+        class="mt-10 mb-10 text-center text-6xl tracking-widest hidden text-orange-800"
+        id="nombre-pokemon"
+      ></h3>
+
+      <img src="" class="text-center m-auto hidden" id="imagen-pokemon" />
+
+      <div
+        class="w-40 p-6 mx-auto mt-20 rounded-full shadow border text-center font-mono cursor-pointer hidden hover:bg-red-200 active:bg-red-400 shadow-black active:border-red-900 bg-red-50"
+        id="volver-atras"
+      >
+        Volver atrás
+      </div>
 
       <div class="text-center h-fit mt-10" id="flechas">
         <div
