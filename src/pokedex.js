@@ -101,6 +101,32 @@ function llamarPokemon(e) {
       $("#imagen-pokemon")
         .removeClass("hidden")
         .attr("src", `${respuesta.sprites.other.home.front_default}`);
+      $("#data-pokemon").removeClass("hidden");
+
+      // TRAER INFO DE C/POKEMON
+
+      respuesta.types.forEach((tipo, i) => {
+        i === 0
+          ? $("#tipo-pokemon").append($(`<strong> ${tipo.type.name}</strong>`))
+          : $("#tipo-pokemon").append(
+              $(`<strong>, ${tipo.type.name}</strong>`)
+            );
+      });
+
+      $("#peso-pokemon").append(`<strong> ${respuesta.weight}</strong>`);
+
+      respuesta.abilities.forEach((habilidad, i) => {
+        i === 0
+          ? $("#habilidad-pokemon").append(
+              $(`<strong> ${habilidad.ability.name}</strong>`)
+            )
+          : $("#habilidad-pokemon").append(
+              $(`<strong>, ${habilidad.ability.name}</strong>`)
+            );
+      });
+
+      $("#altura-pokemon").append(`<strong> ${respuesta.height}</strong>`);
+
       $("#volver-atras").removeClass("hidden");
     });
 }
@@ -111,6 +137,12 @@ const volverAtras = () => {
   $("#flechas").show();
   $("#nombre-pokemon").addClass("hidden");
   $("#imagen-pokemon").addClass("hidden");
+  $("#data-pokemon").addClass("hidden");
+  $("#tipo-pokemon strong").remove();
+  $("#peso-pokemon strong").remove();
+  $("#habilidad-pokemon strong").remove();
+  $("#altura-pokemon strong").remove();
+
   botonVolverAtras.addClass("hidden");
   listarPokemones(botonVolverAtras[0].href);
 };

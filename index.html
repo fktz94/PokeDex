@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="dist/output.css" /> -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
+    <link rel="stylesheet" href="dist/output.css" />
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" href="src/pokedex.css" />
+
     <title>PokeDex</title>
   </head>
   <body>
@@ -39,6 +39,18 @@
         id="nombre-pokemon"
       ></h3>
 
+      <div class="hidden" id="data-pokemon">
+        <div class="flex w-3/5 m-auto">
+          <div class="flex flex-col m-auto w-1/2" id="col-izq">
+            <h4 class="text-xl m-5" id="altura-pokemon">Altura:</h4>
+            <h4 class="text-xl m-5" id="peso-pokemon">Peso:</h4>
+          </div>
+          <div class="flex flex-col m-auto w-1/2" id="col-der">
+            <h4 class="text-xl m-5" id="tipo-pokemon">Tipo:</h4>
+            <h4 class="text-xl m-5" id="habilidad-pokemon">Habilidades:</h4>
+          </div>
+        </div>
+      </div>
       <img src="" class="text-center m-auto hidden" id="imagen-pokemon" />
 
       <div
@@ -76,12 +88,12 @@
       </div>
     </div>
 
-    <!-- <script src="node_modules/jquery/dist/jquery.min.js"></script> -->
-    <script
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- <script
       src="https://code.jquery.com/jquery-3.6.3.min.js"
       integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
     <script src="src/pokedex.js"></script>
   </body>
 </html>
